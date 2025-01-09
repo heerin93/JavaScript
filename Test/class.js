@@ -44,7 +44,7 @@ class Imc {
     }
     //* Le calcul
     calculImc() {
-        // TODO
+        poids * taille ;
 
     }
     //* Affichage
