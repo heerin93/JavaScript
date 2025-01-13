@@ -1,0 +1,43 @@
+const apiDiv = document.querySelector('#userCard');
+const bouton = document.querySelector("a");
+const randomUser =  async () => {
+    const rawData = await fetch('https://randomuser.me/api/');
+    console.log(rawData);
+    console.log(rawData.ok);
+    console.log(rawData.status);
+    const transformedData = await rawData.json();
+    console.log(transformedData);
+    //apiDiv.innerHTML = transformedData.results[0].name.title;
+    const div10 = document.createElement("img");
+    div10.src = transformedData.results[0].picture.medium;
+    apiDiv.append(div10); 
+    const div1 = document.createElement("h5");
+    div1.innerText = transformedData.results[0].name.title;
+    apiDiv.append(div1); 
+    const div2 = document.createElement("h5");
+    div2.innerText = transformedData.results[0].name.first;
+    apiDiv.append(div2); 
+    const div3 = document.createElement("h5");
+    div3.innerText = transformedData.results[0].name.last;
+    apiDiv.append(div3); 
+    const div4 = document.createElement("p");
+    div4.innerText = transformedData.results[0].email;
+    apiDiv.append(div4); 
+    const div5 = document.createElement("p");
+    div5.innerText = transformedData.results[0].location.street.number;
+    apiDiv.append(div5); 
+    const div6 = document.createElement("p");
+    div6.innerText = transformedData.results[0].location.street.name;
+    apiDiv.append(div6); 
+    const div7 = document.createElement("p");
+    div7.innerText = transformedData.results[0].location.city;
+    apiDiv.append(div7); 
+    const div8 = document.createElement("p");
+    div8.innerText = transformedData.results[0].location.country;
+    apiDiv.append(div8); 
+    const div9 = document.createElement("p");
+    div9.innerText = transformedData.results[0].phone;
+    apiDiv.append(div9); 
+}
+
+randomUser();
